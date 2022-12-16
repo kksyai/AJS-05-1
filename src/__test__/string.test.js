@@ -1,7 +1,7 @@
 import Character from '../character';
 
 test('should be string', () => {
-  const expected = 'ivan';
+  const expected = 'string';
   const received = new Character('ivan', 'swordman', 50, 10);
-  expect(received.name).toBe(expected);
+  expect(typeof received.name).toBe(typeof expected);
 });

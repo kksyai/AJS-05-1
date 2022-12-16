@@ -7,18 +7,14 @@ export default class Character {
     this.attack = attack;
     this.defence = defence;
   }
+
+  checkLenght() {
+    if ((this.name.length < 2) || (this.name.length > 10)) {
+      throw new Error('length is incorrect');
+    }
+    return true;
+  }
 }
 
-// checkType(data) {
-//   if (typeof this.data === 'string') {
-//     console.log('data true');
-//     return;
-//   }
-//   console.log(`error, name «${data}» - type unidefined`);
-// }
-
-// if ((data.length > 2) && (data.length < 10)) {
-//   console.log(`${data} is correct`);
-//   return;
-// }
-// console.log(`error, name «${data}» - length is incorrect`);
+// const person = new Character('ivanvhgjhghnbckh', 'bowman', 100, 2, 40, 30);
+// console.log(person.checkLenght());
