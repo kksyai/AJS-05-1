@@ -1,4 +1,4 @@
-import Character from './class_Character.js';
+import Character from './character';
 
 class Swordsman extends Character {
   constructor(name, type, health, level, attack, defence) {
