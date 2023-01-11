@@ -1,17 +1,16 @@
-// import Character from '../character';
 import Bowman from '../bowman';
 
-test('create test', () => {
+test('levelUp test', () => {
   const person = new Bowman('ivan');
 
   const expected = {
     name: 'ivan',
     type: 'Bowman',
     health: 100,
-    level: 1,
-    attack: 25,
-    defence: 25,
+    level: 2,
+    attack: 30,
+    defence: 30,
   };
 
-  expect(person).toEqual(expected);
+  expect(person.levelUp()).toEqual(expected);
 });

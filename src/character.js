@@ -1,30 +1,42 @@
 export default class Character {
   constructor(name, type) {
-    function checkName() {
-      if ((name.length < 2) || (name.length > 10) || (typeof (name) !== 'string')) {
+    function checkName(charName) {
+      if ((charName.length < 2) || (charName.length > 10) || (typeof (charName) !== 'string')) {
         throw new Error('Name is incorrect');
       }
-      return name;
+      return charName;
     }
 
-    function checkType() {
+    function checkType(charType) {
       const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
-      if (!types.includes(type)) {
+      if (!types.includes(charType)) {
         throw new Error('Type is incorrect');
       }
-      return type;
+      return charType;
     }
 
-    this.name = checkName();
-    this.type = checkType();
+    this.name = checkName(name);
+    this.type = checkType(type);
 
     this.health = 100;
     this.level = 1;
     this.attack = undefined;
     this.defence = undefined;
   }
-}
 
-// this.name = checkName();
-// const person = new Character('ivanvhgjhghnbckh', 'bowman', 100, 2, 40, 30);
-// console.log(person.checkLenght());
+  levelUp() {
+    if (this.health !== 0) {
+      this.level += 1;
+      this.attack += this.attack * 0.2;
+      this.defence += this.defence * 0.2;
+      this.health = 100;
+      return this;
+    }
+    throw new Error('нельзя повысить уровень жизни умершего');
+  }
+
+  damage(points) {
+    this.health -= points * (1 - this.defence / 100);
+    return this.health;
+  }
+}
